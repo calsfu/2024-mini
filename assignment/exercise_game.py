@@ -10,7 +10,7 @@ import requests
 import network
 import urequests
 
-N: int = 3
+N: int = 10
 sample_ms = 10.0
 on_ms = 500
 
@@ -78,7 +78,9 @@ def scorer(t: list[int | None]) -> None:
 
     json_file = open(filename, "r")
 
-    database_api_url = "https://mini-project-9642d-default-rtdb.firebaseio.com/scores.json"
+    token = "AIzaSyAa0YZggwLGSL1Zr49nbTvJLm712BVqgN4"
+
+    database_api_url = f"https://mini-project-9642d-default-rtdb.firebaseio.com/scores.json?key={token}"
     response = requests.post(database_api_url, json=json_file.read(), timeout=5)
 
     print(response.text)
