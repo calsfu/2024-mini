@@ -9,11 +9,12 @@ import json
 import requests
 import network
 import urequests
+import os
+
 
 N: int = 10
 sample_ms = 10.0
 on_ms = 500
-
 
 def random_time_interval(tmin: float, tmax: float) -> float:
     """return a random time interval between max and min"""
@@ -78,15 +79,16 @@ def scorer(t: list[int | None]) -> None:
 
     json_file = open(filename, "r")
 
-    token = "AIzaSyAa0YZggwLGSL1Zr49nbTvJLm712BVqgN4"
+    # Get key from json file
+    with open('keys.json', "r") as f:
+        token = json.load(f)['key']
 
-    database_api_url = f"https://mini-project-9642d-default-rtdb.firebaseio.com/scores.json?key={token}"
+    database_api_url = f"https://mini-project-9642d-default-rtdb.firebaseio.com/scores.json?auth={token}"
     response = requests.post(database_api_url, json=json_file.read(), timeout=5)
 
     print(response.text)
 
 if __name__ == "__main__":
-    # using "if __name__" allows us to reuse functions in other scriptx files
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
     wlan.connect('BU Guest (unencrypted)')
