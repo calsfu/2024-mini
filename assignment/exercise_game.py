@@ -62,6 +62,7 @@ def scorer(t: list[int | None]) -> None:
     # is in range [0..1]
     data = {}
 
+    # Compute game results
     data['min'] = min(t_good)
     data['max'] = max(t_good)
     data['average'] = sum(t_good) / len(t_good)
@@ -83,12 +84,14 @@ def scorer(t: list[int | None]) -> None:
     with open('keys.json', "r") as f:
         token = json.load(f)['key']
 
+    # Write to firebase real time database
     database_api_url = f"https://mini-project-9642d-default-rtdb.firebaseio.com/scores.json?auth={token}"
     response = requests.post(database_api_url, json=json_file.read(), timeout=5)
 
     print(response.text)
 
 if __name__ == "__main__":
+    # Connect pico to wifi
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
     wlan.connect('BU Guest (unencrypted)')
