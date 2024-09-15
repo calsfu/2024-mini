@@ -6,8 +6,16 @@
 #### Questions
 1. We found that a max brightness of 21000 and a minimum brightness 7000 worked well for calibrating our led. In our testing, the light turned off in bright conditions and turned on in dark conditions, and had a noninteger duty cycle in between.
 
+
+https://github.com/user-attachments/assets/8957fc7a-2dba-4bc7-a213-44a945387a5e
+
+
 ### Exercise 02
 1. We modified the code to play a rendention of the Super Mario Bros. theme. 
+
+
+https://github.com/user-attachments/assets/f429c421-7400-4741-ae07-ecd3a5418a01
+
 
 ### Exercise 03
 1. We edited the code to compute the average, minimum, and maximum response time for 10 flashes.
