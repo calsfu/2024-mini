@@ -47,7 +47,6 @@ def write_json(json_filename: str, data: dict) -> None:
     with open(json_filename, "w") as f:
         json.dump(data, f)
 
-
 def scorer(t: list[int | None]) -> None:
     # %% collate results
     misses = t.count(None)
@@ -95,6 +94,12 @@ if __name__ == "__main__":
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
     wlan.connect('BU Guest (unencrypted)')
+
+    # Add key to microcontroller. Must be done once per BOOTSEL
+    # key = {
+    #     "key": "ADD_KEY_HERE"
+    # }
+    # write_json('keys.json', key)
 
     led = Pin("LED", Pin.OUT)
     button = Pin(16, Pin.IN, Pin.PULL_UP)

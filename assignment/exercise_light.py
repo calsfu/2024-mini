@@ -5,7 +5,7 @@ Use analog input with photocell
 
 import time
 import machine
-
+import os
 # GP28 is ADC2
 ADC2 = 28
 
@@ -14,9 +14,8 @@ adc = machine.ADC(ADC2)
 
 blink_period = 0.1
 
-max_bright = 23000
-min_bright = 9000
-
+max_bright = 21000
+min_bright = 7000
 
 def clip(value: float) -> float:
     """clip number to range [0, 1]"""
@@ -37,7 +36,7 @@ while True:
     """
 
     duty_cycle = clip((value - min_bright) / (max_bright - min_bright))
-
+    print(duty_cycle)
     led.high()
     time.sleep(blink_period * duty_cycle)
 
