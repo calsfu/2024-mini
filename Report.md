@@ -20,8 +20,8 @@ https://github.com/user-attachments/assets/f429c421-7400-4741-ae07-ecd3a5418a01
 ### Exercise 03
 
 #### User Story
-As a player of the flash game, I would like my game metrics to be stored on the cloud, so I can access them easily from any device, and my metrics won't be erased, if the raspberry pi pico gets reset.
-As a developer of the flash game, I would like game metrics to be stored on the cloud, so I can centralize each players game metrics and query info based on each player when needed. Storing information on the cloud also means that only authorized users can read and write data. For example, one player cannot change another player's data.
+- As a player of the flash game, I would like my game metrics to be stored on the cloud, so I can access them easily from any device, and my metrics won't be erased, if the raspberry pi pico gets reset.
+- As a developer of the flash game, I would like game metrics to be stored on the cloud, so I can centralize each players game metrics and query info based on each player when needed. Storing information on the cloud also means that only authorized users can read and write data. For example, one player cannot change another player's data.
 
 
 1. We edited the code to compute the average, minimum, and maximum response time for 10 flashes.
